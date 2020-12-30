@@ -1,0 +1,22 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  background: #555;
+  border: 1px solid #333;
+  padding: 1px;
+
+  .row {
+    background: #555;
+    padding: 1px;
+    display: flex;
+    flex: 1;
+
+    .cell {
+      background: #222;
+      flex: 1;
+      margin: 0px 1px;
+      min-height: 100px;
+      min-width: 100px;
+    }
+  }
+}

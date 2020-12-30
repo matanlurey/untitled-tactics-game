@@ -60,5 +60,8 @@
     "package.json",
     ".vscode",
     ".vscode-insiders"
+  ],
+  "cSpell.words": [
+    "antd"
   ]
 }
