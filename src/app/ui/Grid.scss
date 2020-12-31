@@ -12,12 +12,11 @@ $gridSize: 10vw;
 
 .grid {
   @include ignore-list-styles();
-
   display: block;
-  font-size: 2vw;
 
   > .row {
     @include ignore-list-styles();
+    display: flex;
 
     &:nth-child(odd) {
       padding-left: $gridSize / 2;
@@ -26,7 +25,6 @@ $gridSize: 10vw;
     > .cell {
       display: inline-flex;
       border: 1px solid #ccc;
-      position: relative;
       width: $gridSize;
       height: $gridSize;
 

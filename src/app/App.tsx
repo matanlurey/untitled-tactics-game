@@ -2,7 +2,7 @@ import { Layout } from 'antd';
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import './App.scss';
-import { Cell, Grid, Row } from './Grid';
+import { Cell, Grid, Row } from './ui/Grid';
 
 function app(): JSX.Element {
   const tiles = [
@@ -17,15 +17,13 @@ function app(): JSX.Element {
       <Layout.Sider collapsed={true} collapsedWidth={0}></Layout.Sider>
       <Layout.Content>
         <Grid>
-          {tiles.map((row, yIndex) => {
+          {tiles.map((row, y) => {
             return (
-              <Row>
-                {row.map((_, xIndex) => {
+              <Row key={y}>
+                {row.map((_, x) => {
                   return (
-                    <Cell>
-                      <>
-                        ({xIndex}, {yIndex})
-                      </>
+                    <Cell key={x}>
+                      <></>
                     </Cell>
                   );
                 })}
