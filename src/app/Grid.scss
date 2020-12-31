@@ -8,8 +8,13 @@
   padding: 0;
 }
 
+$gridSize: 10vw;
+
 .grid {
   @include ignore-list-styles();
+
+  display: block;
+  font-size: 2vw;
 
   > .row {
     @include ignore-list-styles();
@@ -18,14 +23,14 @@
       display: inline-flex;
       border: 1px solid #ccc;
       position: relative;
-      width: 100px;
-      height: 100px;
+      width: $gridSize;
+      height: $gridSize;
 
       justify-content: center;
       align-items: center;
 
       &:nth-child(even) {
-        top: 50px;
+        top: $gridSize / 2;
       }
     }
   }
