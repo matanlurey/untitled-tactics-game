@@ -1,11 +1,11 @@
 import './Grid.scss';
 
-export interface HexProps {
-  children: JSX.Element | undefined;
+export interface CellProps {
+  children: JSX.Element | JSX.Element[] | undefined;
 }
 
-export function Hex(props: HexProps): JSX.Element {
-  return <li className="hex">{props.children}</li>;
+export function Cell(props: CellProps): JSX.Element {
+  return <li className="cell">{props.children}</li>;
 }
 
 export interface RowProps {

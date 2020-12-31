@@ -2,65 +2,36 @@ import { Layout } from 'antd';
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import './App.scss';
-import { Grid, Hex, Row } from './Grid';
+import { Cell, Grid, Row } from './Grid';
 
 function app(): JSX.Element {
+  const tiles = [
+    [0, 1, 2, 3],
+    [0, 1, 2, 3, 4],
+    [0, 1, 2, 3],
+    [0, 1, 2, 3, 4],
+    [0, 1, 2, 3],
+  ];
   return (
     <Layout>
-      <Layout.Sider collapsed={true}></Layout.Sider>
+      <Layout.Sider collapsed={true} collapsedWidth={0}></Layout.Sider>
       <Layout.Content>
         <Grid>
-          <Row>
-            <Hex>
-              <div>(0, 0)</div>
-            </Hex>
-            <Hex>
-              <div>(1, 0)</div>
-            </Hex>
-            <Hex>
-              <div>(2, 0)</div>
-            </Hex>
-            <Hex>
-              <div>(3, 0)</div>
-            </Hex>
-            <Hex>
-              <div>(4, 0)</div>
-            </Hex>
-          </Row>
-          <Row>
-            <Hex>
-              <div>(1, 1)</div>
-            </Hex>
-            <Hex>
-              <div>(2, 1)</div>
-            </Hex>
-            <Hex>
-              <div>(2, 1)</div>
-            </Hex>
-            <Hex>
-              <div>(3, 1)</div>
-            </Hex>
-            <Hex>
-              <div>(4, 1)</div>
-            </Hex>
-          </Row>
-          <Row>
-            <Hex>
-              <div>(0, 2)</div>
-            </Hex>
-            <Hex>
-              <div>(1, 2)</div>
-            </Hex>
-            <Hex>
-              <div>(2, 2)</div>
-            </Hex>
-            <Hex>
-              <div>(3, 2)</div>
-            </Hex>
-            <Hex>
-              <div>(4, 2)</div>
-            </Hex>
-          </Row>
+          {tiles.map((row, yIndex) => {
+            return (
+              <Row>
+                {row.map((_, xIndex) => {
+                  return (
+                    <Cell>
+                      <>
+                        ({xIndex}, {yIndex})
+                      </>
+                    </Cell>
+                  );
+                })}
+              </Row>
+            );
+          })}
         </Grid>
       </Layout.Content>
     </Layout>

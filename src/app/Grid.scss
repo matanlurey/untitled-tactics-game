@@ -19,7 +19,11 @@ $gridSize: 10vw;
   > .row {
     @include ignore-list-styles();
 
-    > .hex {
+    &:nth-child(odd) {
+      padding-left: $gridSize / 2;
+    }
+
+    > .cell {
       display: inline-flex;
       border: 1px solid #ccc;
       position: relative;
@@ -28,10 +32,6 @@ $gridSize: 10vw;
 
       justify-content: center;
       align-items: center;
-
-      &:nth-child(even) {
-        top: $gridSize / 2;
-      }
     }
   }
 }
