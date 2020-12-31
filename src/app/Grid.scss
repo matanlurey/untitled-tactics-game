@@ -1,0 +1,32 @@
+@mixin clip-path-hexagon() {
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+}
+
+@mixin ignore-list-styles() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.grid {
+  @include ignore-list-styles();
+
+  > .row {
+    @include ignore-list-styles();
+
+    > .hex {
+      display: inline-flex;
+      border: 1px solid #ccc;
+      position: relative;
+      width: 100px;
+      height: 100px;
+
+      justify-content: center;
+      align-items: center;
+
+      &:nth-child(even) {
+        top: 50px;
+      }
+    }
+  }
+}
