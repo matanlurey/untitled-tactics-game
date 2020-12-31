@@ -30,6 +30,16 @@ $gridSize: 10vw;
 
       justify-content: center;
       align-items: center;
+
+      cursor: pointer;
+
+      &:hover {
+        background: #0c0c0c;
+      }
+
+      &.selected {
+        background: #111;
+      }
     }
   }
 }

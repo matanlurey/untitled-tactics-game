@@ -1,8 +1,10 @@
+import { TileData } from '../../common/tile';
 import './Grid.scss';
 
-export interface CellProps {
+export type CellProps = TileData & {
   children?: JSX.Element | JSX.Element[];
-}
+  onSelect?: (tile: TileData, selected: boolean) => boolean;
+};
 
 /**
  * Represents an individual `{X, Y}` coordinate pair as a cell.
@@ -10,7 +12,19 @@ export interface CellProps {
  * @param props
  */
 export function Cell(props: CellProps): JSX.Element {
-  return <li className="cell">{props.children}</li>;
+  const onClick = (event: React.MouseEvent) => {
+    const element = event.target as HTMLLIElement;
+    const selected = element.classList.contains('selected');
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    if (props.onSelect!(props, selected)) {
+      element.classList.toggle('selected');
+    }
+  };
+  return (
+    <li className="cell" onClick={props.onSelect && onClick}>
+      {props.children}
+    </li>
+  );
 }
 
 export interface RowProps {

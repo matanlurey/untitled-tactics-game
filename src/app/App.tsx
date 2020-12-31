@@ -22,7 +22,14 @@ function app(): JSX.Element {
               <Row key={y}>
                 {row.map((_, x) => {
                   return (
-                    <Cell key={x}>
+                    <Cell
+                      key={x}
+                      x={x}
+                      y={y}
+                      onSelect={() => {
+                        return true;
+                      }}
+                    >
                       <></>
                     </Cell>
                   );
